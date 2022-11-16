@@ -1,2 +1,2 @@
 # Pic 16A Project
-create project
+names: Sandra Lin, Jaeu Choi, Jodie Chen

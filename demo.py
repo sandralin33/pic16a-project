@@ -1,5 +1,16 @@
 # create demo file
+# this file runs the functions
 
+# THERE WILL BE ONE FILE FOR THE CUSTOM CLASS AND ONE FILE FOR CALLING AN INSTANCE AND RUNNING THE FUNCTIONS
+
+# FOR CUSTOM CLASS - Sandra will try to inherit from an existing Python class that does Logistic Regression, and customize it to only include the methods that we need
+# might need help lol
+# FOR FUNCTIONS - "translate" your section to one function
+
+
+# CUSTOM CLASS PORTION
+
+# "TAKE INSPIRATION" FROM EXISTING LOGISTIC REGRESSION MODEL
 # explain this
 class File(self):
     '''
@@ -19,39 +30,52 @@ class File(self):
             raise TypeError # if not, raise TypeError
     
     
-    # explain this
-    def clean_df(self):
-        '''
-        Args:
-            none
-        Returns:
-            None
-        '''
-        pass
+    # method 1
     
-    
-    
-    # explain this
-    def LogReg(self):
-        '''
-        Args:
-            none
-        Returns:
-            none
-        '''
-        pass
-    
-    
-    
-    # explain this
-    def graph(self):
-        '''
-        Args:
-            none
-        Returns:
-            none
-        '''
-        pass
+    # method 2
+            
       
+    
+    
+    
+# TRANSLATE YOUR SECTION TO ONE FUNCTION
+# THIS PART MAY BE CONVERTED TO A SEPARATE .PY FILE (DEMO FILE THAT CREATES INSTANCE OF OUR CUSTOM CLASS AND USES ALL THESE FUNCTIONS)
+
+# THIS PART IS CLEANING THE DATA (MAY BE INCLUDED IN CUSTOM CLASS)
+# explain this
+def clean_df():
+    '''
+    Args:
+        none
+    Returns:
+        none
+     '''
+     pass
+    
+    
+# THIS PART IS FINDING THE COEFFICENTS AND COEFFICIENT GRAPH (FIGURE 1)    
+# explain this
+def logregression():
+    '''
+    Args:
+        none
+    Returns:
+        none
+    '''
+    pass
+    
+
+# THIS PART IS CREATING THE HISTOGRAMS (FIGURE 2)
+# explain this
+def histogram():
+    '''
+    Args:
+        none
+    Returns:
+        none
+    '''
+    pass
       
-# modify your "section"
+  
+
+# MACHINE LEARNING COMPONENT (OPTIONAL)

@@ -5,7 +5,7 @@
 
 # FOR CUSTOM CLASS - Sandra will try to inherit from an existing Python class that does Logistic Regression, and customize it to only include the methods that we need
 # might need help lol
-# FOR FUNCTIONS - "translate" your section to one function
+# FOR FUNCTIONS - "translate" your section to function(s)
 
 
 # CUSTOM CLASS PORTION
@@ -38,7 +38,7 @@ class File(self):
     
     
     
-# TRANSLATE YOUR SECTION TO ONE FUNCTION
+# TRANSLATE YOUR SECTION TO A FUNCTION OR FUNCTIONS
 # THIS PART MAY BE CONVERTED TO A SEPARATE .PY FILE (DEMO FILE THAT CREATES INSTANCE OF OUR CUSTOM CLASS AND USES ALL THESE FUNCTIONS)
 
 # THIS PART IS CLEANING THE DATA (MAY BE INCLUDED IN CUSTOM CLASS)

@@ -1,16 +1,18 @@
-# create demo file
-# this file runs the functions
+# create demo file??
 
-# THERE WILL BE ONE FILE FOR THE CUSTOM CLASS AND ONE FILE FOR CALLING AN INSTANCE AND RUNNING THE FUNCTIONS
+# THERE WILL BE ONE FILE FOR THE CUSTOM CLASS AND ONE FILE FOR THE FUNCTIONS
+# SEE PAGERANK.PY AND UTIL.PY FROM HOMEWORK 3 TO SEE HOW IT WORKS
 
-# FOR CUSTOM CLASS - Sandra will try to inherit from an existing Python class that does Logistic Regression, and customize it to only include the methods that we need
-# might need help lol
+# FOR CUSTOM CLASS - TWO OPTIONS (1) "TAKE INSPIRATION" FROM EXISTING LOGISTIC REGRESSION MODEL (2) CREATE METHODS THAT USE THE FUNCTIONS IN SOME WAY
+# Sandra will figure out the custom class stuff (might need help tho lol)
 # FOR FUNCTIONS - "translate" your section to function(s)
+
+# CREATE A .IPYNB FILE TO CREATE AN INSTANCE OF THE CLASS AND RUN EVERYTHING
+# for .ipynb file, format will be done in Jupyter Notebook and uploaded to github
 
 
 # CUSTOM CLASS PORTION
 
-# "TAKE INSPIRATION" FROM EXISTING LOGISTIC REGRESSION MODEL
 # explain this
 class File(self):
     '''
@@ -39,8 +41,7 @@ class File(self):
     
     
 # TRANSLATE YOUR SECTION TO A FUNCTION OR FUNCTIONS
-# THIS PART MAY BE CONVERTED TO A SEPARATE .PY FILE OR .IPYNB FILE (FILE THAT CREATES INSTANCE OF OUR CUSTOM CLASS AND USES ALL THESE FUNCTIONS)
-# if converted to an .ipynb file, format will be done in Jupyter Notebook and uploaded to github
+# THIS PART WILL BE CONVERTED TO A SEPARATE .PY FILE
 
 # THIS PART IS CLEANING THE DATA (MAY BE INCLUDED IN CUSTOM CLASS)
 # explain this

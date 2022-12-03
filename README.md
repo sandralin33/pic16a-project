@@ -6,6 +6,9 @@ Sandra Lin, Jaeu Choi, Jodie Chen
 ## Short Description
 of the project
 
+## Dataset
+background and source
+
 ## Python Packages
 packages we used
 
@@ -24,8 +27,7 @@ explanations or interpretations of the result
 including ethical implications, accessibility concerns, and ideas for potential extensions
 
 ## Acknowledgement
+thank you professor
 
 ## References
-
-## Dataset
-background and source
+penguins project

@@ -18,6 +18,8 @@ on how to run it
 
 ### Output 
 what one should expect to see
+
+### Figures
 include 2 figures
 
 ### Result

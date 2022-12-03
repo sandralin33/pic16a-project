@@ -10,14 +10,14 @@ of the project
 packages we used
 
 ## Detailed Description
-#### Instructions
+### Instructions
 on how to run it
 
-#### Output 
+### Output 
 what one should expect to see
 include 2 figures
 
-#### Result
+### Result
 explanations or interpretations of the result
 
 ## Limitations

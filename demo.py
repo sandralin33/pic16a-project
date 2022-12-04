@@ -1,49 +1,28 @@
-# create demo file??
-
-# THERE WILL BE ONE FILE FOR THE CUSTOM CLASS AND ONE FILE FOR THE FUNCTIONS
-# SEE PAGERANK.PY AND UTIL.PY FROM HOMEWORK 3 TO SEE HOW IT WORKS
-
-# FOR CUSTOM CLASS - TWO OPTIONS (1) "TAKE INSPIRATION" FROM EXISTING LOGISTIC REGRESSION MODEL (2) CREATE METHODS THAT USE THE FUNCTIONS IN SOME WAY
-# Sandra will figure out the custom class stuff (might need help tho lol)
-# FOR FUNCTIONS - "translate" your section to function(s)
-
-# CREATE A .IPYNB FILE TO CREATE AN INSTANCE OF THE CLASS AND RUN EVERYTHING
-# for .ipynb file, format will be done in Jupyter Notebook and uploaded to github
-
+# create file of classes and functions
 
 # CUSTOM CLASS PORTION
 
-# explain this
-class File(self):
-    '''
-    none
-    '''
+class healthcare():
+    """ 
+    does stuff to dataset
+    """
     
-    # explain this
-    def __init__(self):
-        '''
+    # EXPLAIN
+    def __init__(self) 
+        """ EXPLAIN
         Args:
+            EXPLAIN
+        Returns: 
             none
-        Returns:
-            None
-        '''
-        # check if CSV file
-        if ##
-            raise TypeError # if not, raise TypeError
-    
-    
-    # method 1
-    
-    # method 2
+        """
+        # INSTANCE
+        # CHECK IF CSV
+        
             
       
-    
-    
-    
 # TRANSLATE YOUR SECTION TO A FUNCTION OR FUNCTIONS
-# THIS PART WILL BE CONVERTED TO A SEPARATE .PY FILE
 
-# THIS PART IS CLEANING THE DATA (MAY BE INCLUDED IN CUSTOM CLASS)
+# THIS PART IS CLEANING THE DATA
 # explain this
 def clean_df():
     '''
@@ -57,7 +36,7 @@ def clean_df():
     
 # THIS PART IS FINDING THE COEFFICENTS AND COEFFICIENT GRAPH (FIGURE 1)    
 # explain this
-def logregression():
+def logreg():
     '''
     Args:
         none
@@ -70,6 +49,18 @@ def logregression():
 # THIS PART IS CREATING THE HISTOGRAMS (FIGURE 2)
 # explain this
 def histogram():
+    '''
+    Args:
+        none
+    Returns:
+        none
+    '''
+    pass
+
+
+# THIS PART IS CREATING THE BARGRAPHS (FIGURE 3)
+# explain this
+def bargraph():
     '''
     Args:
         none

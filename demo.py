@@ -1,25 +1,21 @@
 # create file of classes and functions
 
-# CUSTOM CLASS PORTION
-
+# CUSTOM CLASS
 class healthcare():
-    """ 
+    '''
     does stuff to dataset
-    """
+    '''
     
-    # EXPLAIN
-    def __init__(self) 
-        """ EXPLAIN
+    def __init__(self):
+        '''
         Args:
-            EXPLAIN
-        Returns: 
             none
-        """
-        # INSTANCE
-        # CHECK IF CSV
+        Returns:
+            none
+         '''
+         pass
         
             
-      
 # TRANSLATE YOUR SECTION TO A FUNCTION OR FUNCTIONS
 
 # THIS PART IS CLEANING THE DATA

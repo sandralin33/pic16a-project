@@ -51,7 +51,14 @@ def histogram():
     Returns:
         none
     '''
-    pass
+    features = ["age", "avg_glucose_level", "bmi"]
+    fig, ax = plt.subplots(1,len(features), figsize = (16, 8))
+    
+    for i in range(len(features)):
+        ax[i].hist(healthcare[stroke_true][features[i]], alpha = 0.6, density = True)
+        ax[i].hist(healthcare[stroke_false][features[i]], alpha = 0.6, density = True)
+        ax[i].set(xlabel = features[i], ylabel = "case")
+        ax[i].legend(("Stroke", "No Stroke"))
 
 
 # THIS PART IS CREATING THE BARGRAPHS (FIGURE 3)
@@ -64,7 +71,6 @@ def bargraph():
         none
     '''
     pass
-      
   
 
 # MACHINE LEARNING COMPONENT (OPTIONAL)

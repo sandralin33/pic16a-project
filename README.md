@@ -18,14 +18,12 @@ on how to run it
 
 ### Output 
 what one should expect to see
-
-### Figures
 include 2 figures
 
 ### Result
 explanations or interpretations of the result
 
-## Limitations
+## Scope and Limitations
 including ethical implications, accessibility concerns, and ideas for potential extensions
 
 ## Acknowledgement

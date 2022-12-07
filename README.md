@@ -1,10 +1,10 @@
-# Project Name
+# Stroke Prediction
 
 ## Collaborators
 Sandra Lin, Jaeu Choi, Jodie Chen
 
 ## Short Description
-of the project
+This project analyzes which features are most revelant to predicting whether someone does or doesn't get a stroke. <include something about model testing?>
 
 ## Dataset
 background and source

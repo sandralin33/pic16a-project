@@ -16,16 +16,17 @@ class DataPreparation():
     description
     '''
     
-    def __init__(self):
+    def __init__(self, csv):
         '''
         Args:
             none
         Returns:
             none
         '''
-        # ADD EXCEPTION HANDLING
-        # ADD SELF CSV & DF
-        pass
+        # exception handling
+        
+        # self
+        self.csv = csv
     
         
     def clean_df(self):
@@ -124,6 +125,7 @@ class DataPreparation():
         return healthcare
     
     
+    # RENAME THIS FUNCTION
     def clean_df_3(self):
         '''
         Args:
@@ -142,22 +144,23 @@ class DataPreparation():
    
 
 # FUNCTION OUTSIDE OF CLASS  
-def histogram(features):
+def make_histogram(f):
         '''
         Args:
-            features: list of features
+            f: list of features
         Returns:
             none
         '''
         # exception handling
         
-        # ADD COMMENT
-        fig, ax = plt.subplots(1, len(features), figsize = (16, 8))
         
         # ADD COMMENT
-        for i in range(len(features)):
-            ax[i].hist(healthcare[stroke_true][features[i]], alpha = 0.6, density = True)
-            ax[i].hist(healthcare[stroke_false][features[i]], alpha = 0.6, density = True)
-            ax[i].set(xlabel = features[i], ylabel = "case")
+        fig, ax = plt.subplots(1, len(f), figsize = (16, 8))
+        
+        # ADD COMMENT
+        for i in range(len(f)):
+            ax[i].hist(healthcare[stroke_true][f[i]], alpha = 0.6, density = True)
+            ax[i].hist(healthcare[stroke_false][f[i]], alpha = 0.6, density = True)
+            ax[i].set(xlabel = f[i], ylabel = "case")
             ax[i].legend(("Stroke", "No Stroke"))
             

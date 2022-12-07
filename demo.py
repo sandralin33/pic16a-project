@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 class DataPreparation:
     '''
-    description
+    description SANDRA
     '''
     
     def __init__(self, df):
@@ -18,6 +18,7 @@ class DataPreparation:
         self.df = df
         
         
+    # SANDRA    
     def clean_df(self):
         '''
         Args:
@@ -65,7 +66,8 @@ class DataPreparation:
         self.df = self.df[self.df['gender'] != 'Other'] # drops 'Other' in gender
         self.df = self.df.dropna().reset_index(drop = True) # dropping entries with NaN values
     
-        
+    
+    # JODIE
     def clean_df_2(self, df):
         '''
         Args:
@@ -80,28 +82,27 @@ class DataPreparation:
         # this function to further change continuous variables to categorical
         
         # ADD COMMENT
-        category = pd.cut(self.df.age,bins=[0,60,99],labels=['Not Senior','Senior'])
-        self.df.insert(2,'Is_Old', category)
-        self.df["Is_Old"] = self.df["Is_Old"].map({
-            'Not Senior': 0,
-            'Senior': 1,
+        category = pd.cut(self.df.age,bins=[0,60,99],labels=["Not Senior", "Senior"])
+        self.df.insert(2, "is_Old", category)
+        self.df["is_Old"] = self.df["is_Old"].map({
+            "Not Senior": 0,
+            "Senior": 1,
         })
         
         # ADD COMMENT
-        category2 = pd.cut(healthcare.bmi,bins=[0,30,100],labels=['Not Overweight','Overweight'])
-        self.df.insert(2,'Is_Overweight', category2)
-        self.df['Is_Overweight'] = self.df['Is_Overweight'].map({
-            'Not Overweight': 0,
-            'Overweight': 1,
+        category2 = pd.cut(healthcare.bmi,bins=[0,30,100],labels=["Not Overweight", "Overweight"])
+        self.df.insert(2, "is_Overweight", category2)
+        self.df["is_Overweight"] = self.df["is_Overweight"].map({
+            "Not Overweight": 0,
+            "Overweight": 1,
         })
         
         # ADD COMMENT
-        category3 = pd.cut(healthcare.avg_glucose_level, bins=[0,150,300], labels=['Normal','High'])
-        self.df.insert(2,'Has_High_Glucose', category3)
-        self.df.drop(['avg_glucose_level'], axis = 1)
-        self.df['Has_High_Glucose'] = self.df['Has_High_Glucose'].map({
-            'Normal': 0,
-            'High': 1,
+        category3 = pd.cut(healthcare.avg_glucose_level, bins=[0,150,300], labels=["Normal", "High"])
+        self.df.insert(2, "has_high_glucose", category3)
+        self.df["has_high_glucose"] = self.df["has_high_glucose"].map({
+            "Normal": 0,
+            "High": 1,
         })
         
         # DROP STUFF
@@ -110,6 +111,7 @@ class DataPreparation:
         self.df = self.df.drop(['bmi'], axis = 1)
     
     
+    # SANDRA
     def train_test_split(self):
         '''
         Args:
@@ -128,15 +130,16 @@ class DataPreparation:
         return X_train, X_test, y_train, y_test
     
         
-        
+# JAEU        
 def make_histogram(df, f):
     '''
     Args:
+        df: ??
         f: list of features
     Returns:
         none
     '''
-    # exception handling
+    # exception handling SANDRA
     if len(f) != 3:
         raise ValueError("Wrong number of features")
         
@@ -153,5 +156,4 @@ def make_histogram(df, f):
         ax[i].hist(df[stroke_false][f[i]], alpha = 0.6, density = True)
         ax[i].set(xlabel = f[i], ylabel = "case")
         ax[i].legend(("Stroke", "No Stroke"))
-        
         

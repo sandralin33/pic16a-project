@@ -124,23 +124,24 @@ class DataPreparation:
         return X, y, X_train, X_test, y_train, y_test
     
          
+# JAEU        
 def make_histogram(df, f):
     '''
-    prints histograms of number of stroke cases, based on input features
+    Description: Prints histograms of number of stroke cases, based on input features
     Args:
         df: the data that will be represented in histograms. In this project, it would be the csv file with stroke cases vs features.
         f: the list of quantitative features that are represented in x axis of the histograms
     Returns:
         none
     '''
-    # exception handling of when more or less than 3 features are entered
+    # exception handling SANDRA
     if len(f) != 3:
         raise ValueError("Wrong number of features")
     
     # exception handling of when the input x values aren't quantitative
     QuantitativeData = False
-    for i in len(df):
-        for j in len(f):
+    for i in range(len(df)):
+        for j in range(len(f)):
             if df.loc[i][f[j]] > 2:
                 QuantitativeData = True
     if QuantitativeData == False:
@@ -150,9 +151,11 @@ def make_histogram(df, f):
     stroke_true = df["stroke"] == 1
     stroke_false = df["stroke"] == 0
 
+    # preparing for histograms
+    fig, ax = plt.subplots(1, len(f), figsize = (16, 8))
+
     # looping through features in the list f, creates histograms of number of stroke cases and non-stroke cases of features.
     # The stroke and non-stroke cases histograms are stacked and normalized with total density = 1 for easier comparison
-    fig, ax = plt.subplots(1, len(f), figsize = (16, 8))
     for i in range(len(f)):
         ax[i].hist(df[stroke_true][f[i]], alpha = 0.6, density = True)
         ax[i].hist(df[stroke_false][f[i]], alpha = 0.6, density = True)

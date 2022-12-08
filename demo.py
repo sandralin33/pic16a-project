@@ -11,7 +11,7 @@ class DataPreparation:
         '''
         initialize with a dataframe
         Args:
-            df: a dataframe
+            df: a dataframe created from healthcare dataset
         Returns:
             none
         '''
@@ -19,17 +19,18 @@ class DataPreparation:
            
     def clean_df(self):
         '''
-        cleans the data by changing qualitative features to binary values, drops 'id' and NaN values
+        change qualitative variables to binary values, drops 'id' and NaN values
         '''
-        # change ever_married and gender to binary values
+        # change ever_married binary value
         le = preprocessing.LabelEncoder()
         self.df['ever_married'] = le.fit_transform(self.df['ever_married']) # married = 1, unmarried = 0
-        self.df = self.df[self.df['gender'] != 'Other'] # drops 'Other' in gender
-        self.df['gender'] = le.fit_transform(self.df['gender']) # male = 1, female = 0
         
-        # ADD COMMENT
-        # original - rename work_type to employed and split employed to (0 = children and never_worked, 1 = govt_job, private, self-employed)
-        # work-related stress
+        # change gender to binary value
+        self.df['gender'] = le.fit_transform(self.df['gender']) # male = 1, female = 0
+        self.df = self.df[self.df['gender'] != 2] # drops 'Other' in gender
+        
+        # rename work_type to is_employed
+        # split is_employed to (0 = children and Never_worked, 1 = Govt_job, Private, Self-employed)
         self.df = self.df.rename(columns = {"work_type" : "is_employed"})
         self.df["is_employed"] = self.df["is_employed"].map({
             "children": 0,
@@ -39,15 +40,16 @@ class DataPreparation:
             "Self-employed": 1
         })
         
-        # ADD COMMENT
+        # rename Residence_type to is_Rural
+        # split is_Rural to (0 = Urban, 1 = Rural)
         self.df = self.df.rename(columns = {"Residence_type" : "is_Rural"})
         self.df["is_Rural"] = self.df["is_Rural"].map({
             "Urban": 0,
             "Rural": 1
         })
         
-        # ADD COMMENT
-        # original - split smoking_status to has_smoked, remove all "Unknown", change to
+        # rename smoking_status to has_smoked
+        # split has_smoked to (0 = never smoked, 1 = formerly smoked, smokes)
         self.df = self.df.rename(columns = {"smoking_status" : "has_smoked"})
         self.df["has_smoked"] = self.df["has_smoked"].map({
             "formerly smoked": 1,
@@ -58,16 +60,15 @@ class DataPreparation:
         self.df = self.df.drop(['id'], axis = 1) # drop 'id'
         self.df = self.df.dropna().reset_index(drop = True) # drop entries with NaN values
     
-    # JODIE
-    def clean_df_2(self, df):
-        ''' Change quantitative variables to binary categories for machine learning
+    def clean_df_2(self):
+        '''
+        change quantitative variables to binary values
         Args:
-            df: dataframe cleaned from calling clean_df first
+            none
         Returns:
             none
         '''
-        
-        # Create a new column Is_Old and sort ages into "Not Senior" and "Senior" for age ranges (0,60] and (60,99] respectively
+        # create a new column is_Old and sort ages into "Not Senior" and "Senior" for age ranges (0,60] and (60,99]
         # convert "Not Senior" and "Senior" categories to 0 and 1
         category = pd.cut(self.df.age,bins=[0,60,99],labels=["Not Senior", "Senior"])
         self.df.insert(2, "is_Old", category)
@@ -76,7 +77,7 @@ class DataPreparation:
             "Senior": 1,
         })
         
-        # Create a new column is_Overweight and sort bmi into "Not Overweight" and "Overweight" for ranges (0,30] and (30,100]
+        # create a new column is_Overweight and sort bmi into "Not Overweight" and "Overweight" for ranges (0,30] and (30,100]
         # convert "Not Overweight" and "Overweight" categories to 0 and 1
         category2 = pd.cut(healthcare.bmi,bins=[0,30,100],labels=["Not Overweight", "Overweight"])
         self.df.insert(2, "is_Overweight", category2)
@@ -85,7 +86,7 @@ class DataPreparation:
             "Overweight": 1,
         })
         
-        # Create a new column has_high_glucose and sort avg_glucose_level into "Normal" and "High" for ranges (0,150] and (150,300]
+        # create a new column has_high_glucose and sort avg_glucose_level into "Normal" and "High" for ranges (0,150] and (150,300]
         # convert "Normal" and "High" categories to 0 and 1
         category3 = pd.cut(healthcare.avg_glucose_level, bins=[0,150,300], labels=["Normal", "High"])
         self.df.insert(2, "has_high_glucose", category3)
@@ -94,15 +95,14 @@ class DataPreparation:
             "High": 1,
         })
         
-        # Drop original columns that have continuous values
+        # drop the original columns that have continuous values
         self.df = self.df.drop(['age'], axis = 1)
         self.df = self.df.drop(['avg_glucose_level'], axis = 1)
         self.df = self.df.drop(['bmi'], axis = 1)
         
-    # SANDRA
     def train_test_split(self):
         '''
-        description
+        splits the data into training and testing ?
         Args:
             none
         Returns:
@@ -113,27 +113,25 @@ class DataPreparation:
             y_train: 
             y_test: 
         '''
-        # splits data into testing and training and compute the scores for both
         y = self.df['stroke'] # stroke outcome
         X = self.df.drop(['stroke'], axis=1) # drop stroke so we don't cheat, X = (features) subset of healthcare
         
-        # set aside 25% of samples for testing the model later on 
+        # set aside 25% of samples for testing the model later on
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
         
         return X, y, X_train, X_test, y_train, y_test
     
-         
-# JAEU        
+    
 def make_histogram(df, f):
     '''
-    Description: Prints histograms of number of stroke cases, based on input features
+    prints histograms of number of stroke cases, based on input features
     Args:
         df: the data that will be represented in histograms. In this project, it would be the csv file with stroke cases vs features.
         f: the list of quantitative features that are represented in x axis of the histograms
     Returns:
         none
     '''
-    # exception handling SANDRA
+    # exception handling of when the number of features isn't 3
     if len(f) != 3:
         raise ValueError("Wrong number of features")
     

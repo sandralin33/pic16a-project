@@ -5,33 +5,27 @@ from matplotlib import pyplot as plt
 
 class DataPreparation:
     '''
-    description SANDRA
+    Takes in a dataframe. Cleans it for data visualization and logistic regression. # something about train_test_split
     '''
-    
     def __init__(self, df):
         '''
+        initialize with a dataframe
         Args:
-            none
+            df: a dataframe
         Returns:
             none
         '''
-        self.df = df
-        
-        
-    # SANDRA    
+        self.df = df # save df as self.df
+           
     def clean_df(self):
         '''
-        Args:
-            none
-        Returns:
-            none
-        ''' 
-        
-        # ADD COMMENT
-        # original - changing ever_married and gender to binary values
+        cleans the data by changing qualitative features to binary values, drops 'id' and NaN values
+        '''
+        # change ever_married and gender to binary values
         le = preprocessing.LabelEncoder()
-        self.df['ever_married'] = le.fit_transform(self.df['ever_married'])
-        self.df['gender'] = le.fit_transform(self.df['gender']) # Male = 1, Female = 0
+        self.df['ever_married'] = le.fit_transform(self.df['ever_married']) # married = 1, unmarried = 0
+        self.df = self.df[self.df['gender'] != 'Other'] # drops 'Other' in gender
+        self.df['gender'] = le.fit_transform(self.df['gender']) # male = 1, female = 0
         
         # ADD COMMENT
         # original - rename work_type to employed and split employed to (0 = children and never_worked, 1 = govt_job, private, self-employed)
@@ -61,21 +55,18 @@ class DataPreparation:
             "never smoked": 0,
         })
         
-        # DROPPING STUFF
-        self.df = self.df.drop(['id'], axis = 1) # ADD COMMENT
-        self.df = self.df[self.df['gender'] != 'Other'] # drops 'Other' in gender
-        self.df = self.df.dropna().reset_index(drop = True) # dropping entries with NaN values
-    
+        self.df = self.df.drop(['id'], axis = 1) # drop 'id'
+        self.df = self.df.dropna().reset_index(drop = True) # drop entries with NaN values
     
     # JODIE
-    def clean_df_2(self, df):
+    def clean_df_2(self):
         '''
+        description
         Args:
             none
         Returns:
             none
         '''
-        
         # ORIGINAL COMMENT
         # additional cleaning for making a more accurate model for logistic regression (non-skewed by quantitative variables)
         # make sure to call clean_df first and pass healthcare from clean_df to
@@ -105,42 +96,44 @@ class DataPreparation:
             "High": 1,
         })
         
-        # DROP STUFF
-        self.df = self.df.drop(['age'], axis = 1)
-        self.df = self.df.drop(['avg_glucose_level'], axis = 1)
-        self.df = self.df.drop(['bmi'], axis = 1)
-    
+        self.df = self.df.drop(['age'], axis = 1) # drop 'age'
+        self.df = self.df.drop(['avg_glucose_level'], axis = 1) # drop 'avg_glucose_level'
+        self.df = self.df.drop(['bmi'], axis = 1) # drop 'bmi'
     
     # SANDRA
     def train_test_split(self):
         '''
+        description
         Args:
             none
         Returns:
-            none
+            X: 
+            y: 
+            X_train: 
+            X_test: 
+            y_train: 
+            y_test: 
         '''
-        
-        # function to split data into testing and training and compute the scores for both
+        # splits data into testing and training and compute the scores for both
         y = self.df['stroke'] # stroke outcome
         X = self.df.drop(['stroke'], axis=1) # drop stroke so we don't cheat, X = (features) subset of healthcare
         
         # set aside 25% of samples for testing the model later on 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
         
-        return X_train, X_test, y_train, y_test
+        return X, y, X_train, X_test, y_train, y_test
     
-        
-# JAEU        
+         
 def make_histogram(df, f):
     '''
-    Description: Prints histograms of number of stroke cases, based on input features
+    prints histograms of number of stroke cases, based on input features
     Args:
         df: the data that will be represented in histograms. In this project, it would be the csv file with stroke cases vs features.
         f: the list of quantitative features that are represented in x axis of the histograms
     Returns:
         none
     '''
-    # exception handling SANDRA
+    # exception handling of when more or less than 3 features are entered
     if len(f) != 3:
         raise ValueError("Wrong number of features")
     
@@ -157,11 +150,9 @@ def make_histogram(df, f):
     stroke_true = df["stroke"] == 1
     stroke_false = df["stroke"] == 0
 
-    # preparing for histograms
-    fig, ax = plt.subplots(1, len(f), figsize = (16, 8))
-
     # looping through features in the list f, creates histograms of number of stroke cases and non-stroke cases of features.
     # The stroke and non-stroke cases histograms are stacked and normalized with total density = 1 for easier comparison
+    fig, ax = plt.subplots(1, len(f), figsize = (16, 8))
     for i in range(len(f)):
         ax[i].hist(df[stroke_true][f[i]], alpha = 0.6, density = True)
         ax[i].hist(df[stroke_false][f[i]], alpha = 0.6, density = True)

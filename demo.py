@@ -59,20 +59,16 @@ class DataPreparation:
         self.df = self.df.dropna().reset_index(drop = True) # drop entries with NaN values
     
     # JODIE
-    def clean_df_2(self):
-        '''
-        description
+    def clean_df_2(self, df):
+        ''' Change quantitative variables to binary categories for machine learning
         Args:
-            none
+            df: dataframe cleaned from calling clean_df first
         Returns:
             none
         '''
-        # ORIGINAL COMMENT
-        # additional cleaning for making a more accurate model for logistic regression (non-skewed by quantitative variables)
-        # make sure to call clean_df first and pass healthcare from clean_df to
-        # this function to further change continuous variables to categorical
         
-        # ADD COMMENT
+        # Create a new column Is_Old and sort ages into "Not Senior" and "Senior" for age ranges (0,60] and (60,99] respectively
+        # convert "Not Senior" and "Senior" categories to 0 and 1
         category = pd.cut(self.df.age,bins=[0,60,99],labels=["Not Senior", "Senior"])
         self.df.insert(2, "is_Old", category)
         self.df["is_Old"] = self.df["is_Old"].map({
@@ -80,7 +76,8 @@ class DataPreparation:
             "Senior": 1,
         })
         
-        # ADD COMMENT
+        # Create a new column is_Overweight and sort bmi into "Not Overweight" and "Overweight" for ranges (0,30] and (30,100]
+        # convert "Not Overweight" and "Overweight" categories to 0 and 1
         category2 = pd.cut(healthcare.bmi,bins=[0,30,100],labels=["Not Overweight", "Overweight"])
         self.df.insert(2, "is_Overweight", category2)
         self.df["is_Overweight"] = self.df["is_Overweight"].map({
@@ -88,7 +85,8 @@ class DataPreparation:
             "Overweight": 1,
         })
         
-        # ADD COMMENT
+        # Create a new column has_high_glucose and sort avg_glucose_level into "Normal" and "High" for ranges (0,150] and (150,300]
+        # convert "Normal" and "High" categories to 0 and 1
         category3 = pd.cut(healthcare.avg_glucose_level, bins=[0,150,300], labels=["Normal", "High"])
         self.df.insert(2, "has_high_glucose", category3)
         self.df["has_high_glucose"] = self.df["has_high_glucose"].map({
@@ -96,10 +94,11 @@ class DataPreparation:
             "High": 1,
         })
         
-        self.df = self.df.drop(['age'], axis = 1) # drop 'age'
-        self.df = self.df.drop(['avg_glucose_level'], axis = 1) # drop 'avg_glucose_level'
-        self.df = self.df.drop(['bmi'], axis = 1) # drop 'bmi'
-    
+        # Drop original columns that have continuous values
+        self.df = self.df.drop(['age'], axis = 1)
+        self.df = self.df.drop(['avg_glucose_level'], axis = 1)
+        self.df = self.df.drop(['bmi'], axis = 1)
+        
     # SANDRA
     def train_test_split(self):
         '''

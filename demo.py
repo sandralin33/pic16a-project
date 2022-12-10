@@ -143,7 +143,7 @@ def make_histogram(df, f):
             if df.loc[i][f[j]] > 2:
                 QuantitativeData = True
     if QuantitativeData == False:
-        raise TypeError("This function only accepts quantitative x values. The" + ', '.join(f) + "is qualitative")
+        raise TypeError("This function only accepts quantitative x values. The" + ', '.join(f) + "are qualitative")
         
     # separating rows with stroke cases and non-stroke cases
     stroke_true = df["stroke"] == 1

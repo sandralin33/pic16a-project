@@ -17,6 +17,9 @@ seaborn 0.11.2<br />
 pyplot from matplotlib 3.5.1<br />
 train_test_split, cross_val_score, tree, preprocessing, LogisticRegression, classification_report, confusion_matrix from sklearn 1.0.2
 
+## Instruction
+Download the files from github, and make sure the entire files are stored in one folder, and run the demo ipynb file. It should run fine without installing additional packages or datasets.
+
 ## Detailed Description
 include instructions on how to run it, output with 2 figures, explanations or interpretations of the result
 

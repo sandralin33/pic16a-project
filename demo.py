@@ -5,7 +5,8 @@ from matplotlib import pyplot as plt
 
 class DataPreparation:
     '''
-    Takes in a dataframe. Cleans it for data visualization and logistic regression. # something about train_test_split
+    Takes in a dataframe. Cleans it for data visualization and machine learning.
+    Splits the data into train and test sets to train/fit different models and test their performance.
     '''
     def __init__(self, df):
         '''
@@ -102,19 +103,19 @@ class DataPreparation:
         
     def train_test_split(self):
         '''
-        splits the data into training and testing ?
+        split the data into train and test sets
         Args:
             none
         Returns:
-            X: 
-            y: 
-            X_train: 
-            X_test: 
-            y_train: 
-            y_test: 
+            X: predictor variables
+            y: target variable, 'stroke' column values
+            X_train: training set for X
+            X_test: testing set for y
+            y_train: training set for X
+            y_test: testing set for y
         '''
-        y = self.df['stroke'] # stroke outcome
-        X = self.df.drop(['stroke'], axis=1) # drop stroke so we don't cheat, X = (features) subset of healthcare
+        y = self.df['stroke'] # y = (label) stroke prediction
+        X = self.df.drop(['stroke'], axis=1) # drop stroke so we don't cheat, X = (features) subset
         
         # set aside 25% of samples for testing the model later on
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)

@@ -24,7 +24,8 @@ include instructions on how to run it, output with 2 figures, explanations or in
 To prep our data for exploratory analysis, we called clean_df to convert all of our categorical features to binary categories. 
 
 ### Data Visualization
-figures
+![The histogram between quantitative health features and stroke cases](https://user-images.githubusercontent.com/93099994/206872120-fd16bbdd-6ce7-4bc8-9dc2-521ad172748d.png)
+![The bar chart of heatlh features and their correlation coefficients](https://user-images.githubusercontent.com/93099994/206872179-03a07aab-ba92-4369-a52a-ee877b9bcee9.png)
 
 ### Data Preparation (Part 2)
 After exploratory analysis, we called clean_df_2 and converted quantitative features (age, bmi, and avg_glucose_level) to binary categories for machine learning.

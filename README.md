@@ -30,7 +30,7 @@ figures
 After exploratory analysis, we called clean_df_2 and converted quantitative features (age, bmi, and avg_glucose_level) to binary categories for machine learning.
 
 ### Comparing Models
-Since our data contains binary labels (stroke, no stroke), we have a classification problem. We trained our data with a logistic regression model and decision tree classifier model and computed the cross-validation scores for both. The model performed equally well; both have a cross-validation score of 0.95.
+Since our data contains binary labels (stroke, no stroke), we have a classification problem. We trained our data with a logistic regression model and decision tree classifier model and computed the cross-validation scores for both. The models performed equally well; both have a cross-validation score of 0.95.
 
 ### Logistic Regression
 After computing the correlation coefficients and odds ratio for each feature based on the logistic regression model, we concluded glucose level, age, hypertension, and heart disease have a strong positive correlation with getting a stroke, while employment status has a strong negative correlation. We also used odds ratio to measure stroke risk in relation to these features. For example, individuals that have stroke are 2.06 times more likely to have heart disease than to not have heart disease

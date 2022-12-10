@@ -36,7 +36,8 @@ results
 results
 
 ## Scope and Limitations
-including ethical implications, accessibility concerns, and ideas for potential extensions
+Our current figures only give us an idea of how one particular feature relates to getting a stroke. To add to our data exploration section, we could include a Decision Tree Classifier flowchart to see which groups of people are predisposed to getting a stroke. For example, we can examine how many women with heart disease get a stroke as opposed to only exploring each feature independently. There is also label imbalance in this dataset which could have skewed our model’s performance–most people recorded in the data have no stroke. To address this, we can compute stratified cross-validation scores or stratified train test splits. We computed odds ratio for each feature to determine their relevance to stroke prediction. But the odds ratio is overly  simplistic in describing real world situations. A positive OR may not necessarily mean a statistically significant result. Our next steps could be calculating confidence intervals and p-values. Our objective is ethical as we want to examine features most correlated with stroke to measure stroke risk for new patients. 
+
 
 ## Acknowledgement
 We would like to thank Professor Harlin Lee for all the help and guidance she provided us in creating this project for our PIC 16A class.

@@ -18,24 +18,28 @@ pyplot from matplotlib 3.5.1<br />
 train_test_split, cross_val_score, tree, preprocessing, LogisticRegression, classification_report, confusion_matrix from sklearn 1.0.2
 
 ## Detailed Description
-### Instructions
-on how to run it
+include instructions on how to run it, output with 2 figures, explanations or interpretations of the result
 
-### Output
-histograms
+### Data Preparation (Part 1)
+explain
 
-bar graphs
+### Data Visualization
+figures
 
-models
+### Data Preparation (Part 2)
+explain
 
-### Result
-explanations or interpretations of the result
+### Comparing Models
+results
+
+### Logistic Regression
+results
 
 ## Scope and Limitations
 including ethical implications, accessibility concerns, and ideas for potential extensions
 
 ## Acknowledgement
-thank you professor
+We would like to thank Professor Harlin Lee for all the help and guidance she provided us in creating this project for our PIC 16A class.
 
 ## References
 penguins project

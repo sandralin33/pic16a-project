@@ -80,7 +80,7 @@ class DataPreparation:
         
         # create a new column is_Overweight and sort bmi into "Not Overweight" and "Overweight" for ranges (0,30] and (30,100]
         # convert "Not Overweight" and "Overweight" categories to 0 and 1
-        category2 = pd.cut(healthcare.bmi,bins=[0,30,100],labels=["Not Overweight", "Overweight"])
+        category2 = pd.cut(self.df.bmi,bins=[0,30,100],labels=["Not Overweight", "Overweight"])
         self.df.insert(2, "is_Overweight", category2)
         self.df["is_Overweight"] = self.df["is_Overweight"].map({
             "Not Overweight": 0,
@@ -89,7 +89,7 @@ class DataPreparation:
         
         # create a new column has_high_glucose and sort avg_glucose_level into "Normal" and "High" for ranges (0,150] and (150,300]
         # convert "Normal" and "High" categories to 0 and 1
-        category3 = pd.cut(healthcare.avg_glucose_level, bins=[0,150,300], labels=["Normal", "High"])
+        category3 = pd.cut(self.df.avg_glucose_level, bins=[0,150,300], labels=["Normal", "High"])
         self.df.insert(2, "has_high_glucose", category3)
         self.df["has_high_glucose"] = self.df["has_high_glucose"].map({
             "Normal": 0,

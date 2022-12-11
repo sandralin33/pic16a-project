@@ -50,7 +50,7 @@ Our current figures only give us an idea of how one particular feature relates t
 We would like to thank Professor Harlin Lee for all the help and guidance she provided us in creating this project for our PIC 16A class.
 
 ## License and Terms of Use
-Usage of the dataset is only allowed for educational purpose only.
+Usage of the dataset is only allowed for educational purpose.
 
 ## References
 penguins project
@@ -59,5 +59,4 @@ https://journalfeed.org/article-a-day/2018/idiots-guide-to-odds-ratios/
 
 https://quantifyinghealth.com/interpret-logistic-regression-coefficients/
 
-## Demo Video
-link
+

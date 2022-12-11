@@ -29,7 +29,7 @@ To prep our data for exploratory analysis, we called clean_df to convert all of 
 The histogram between quantitative health features and stroke cases.<br />
 The age and average glucose level show some possible correlation with number of stroke cases.<br /><br />
 ![](https://user-images.githubusercontent.com/93099994/206872618-fb0a3c32-457e-4ae4-8270-844c60297864.png)<br />
-The bar graphs of qualitative heatlh features and their correlation coefficients.<br />
+The bar chart of the health features and their correlation coefficients.<br />
 The employment status, heart disease, hypertension, age, and high glucose level show high correlation with the stroke cases.
 
 ### Data Preparation (Part 2)
